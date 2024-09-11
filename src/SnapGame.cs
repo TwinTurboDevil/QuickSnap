@@ -6,7 +6,13 @@ namespace CardGames
 {
     public class SnapGame
     {
-        private static void DrawGame(Snap myGame)
+        public static void LoadResources()
+        {
+            Bitmap cards;
+            cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
+            SwinGame.BitmapSetCellDetails (cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
+        }
+		private static void DrawGame(Snap myGame)
 		{
 			SwinGame.ClearScreen(Color.White);
 
@@ -30,12 +36,7 @@ namespace CardGames
 			//Draw onto the screen
 			SwinGame.RefreshScreen(60);
 		}
-	    public static void LoadResources()
-        {
-            Bitmap cards;
-            cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
-            SwinGame.BitmapSetCellDetails (cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
-        }
+	    
 
 		/// <summary>
 		/// Respond to the user input -- with requests affecting myGame
